@@ -1,7 +1,7 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: demoapp
+  name: demoapp2
 spec:
   replicas: 1
   selector:
@@ -13,8 +13,8 @@ spec:
         app: java-springboot-app
     spec:
       containers:
-        - name: demoapp
-          image: image-registry.openshift-image-registry.svc:5000/gennaro-syskoplan-dev/demoapp:latest
+        - name: demoapp2
+          image: image-registry.openshift-image-registry.svc:5000/gennaro-syskoplan-dev/demoapp2:latest
           ports:
             - name: http
               containerPort: 8081
@@ -60,7 +60,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: demoapp-svc
+  name: demoapp2-svc
 spec:
   ports:
     - name: http-8081
@@ -74,11 +74,11 @@ spec:
 kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
-  name: demoapp-route
+  name: demoapp2-route
 spec:
   to:
     kind: Service
-    name: demoapp-svc
+    name: demoapp2-svc
   port:
     targetPort: http-8081
   tls:
