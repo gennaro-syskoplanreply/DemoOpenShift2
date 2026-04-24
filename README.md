@@ -1,2 +1,2 @@
-# DemoOpenShift2
-Consumer for Kafka Service 
+# DemoOpenShift
+Demo per testare i deploy su Open Shift 
