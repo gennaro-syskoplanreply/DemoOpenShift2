@@ -47,11 +47,11 @@ spec:
                 secretKeyRef:
                   name: kafka-secret
                   key: KAFKA_TOPIC
-            - name: KAFKA_GROUP_ID
+            - name: KAFKA_GROUP_ID_DEMOAPP2
               valueFrom:
                 secretKeyRef:
                   name: kafka-secret
-                  key: KAFKA_GROUP_ID
+                  key: KAFKA_GROUP_ID_DEMOAPP2
           resources:
             requests:
               memory: "180Mi"
