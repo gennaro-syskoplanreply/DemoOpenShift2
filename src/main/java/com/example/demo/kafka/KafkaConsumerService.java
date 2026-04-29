@@ -3,6 +3,9 @@ package com.example.demo.kafka;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
+import main.java.com.example.demo.dto.LogRequest;
+import main.java.com.example.demo.model.Log;
+
 /**
  * KafkaConsumerService — Servizio per la ricezione di messaggi da Kafka.
  *
@@ -38,7 +41,10 @@ public class KafkaConsumerService {
         }
 
         // Logica di business normale
-        System.out.println("Messaggio processato con successo: " + message);
+        LogRequest request = new LogRequest();
+        request.setTimeStamp(new Date(System.currentTimeMillis()));   
+        request.setMessage(message);
+        Log created = logService.create(request);
     }
 
     /**
@@ -54,9 +60,10 @@ public class KafkaConsumerService {
     )
     public void listenDlt(String message) {
         System.err.println("⚠️ Messaggio finito in DLQ: " + message);
-        // Qui puoi:
-        // - Salvare nel database per analisi
-        // - Inviare una notifica al team
-        // - Tentare una logica di recupero alternativa
+
+        LogRequest request = new LogRequest();
+        request.setTimeStamp(new Date(System.currentTimeMillis()));   
+        request.setMessage("Message in DLQ: " + message);
+        Log created = logService.create(request);
     }
 }
