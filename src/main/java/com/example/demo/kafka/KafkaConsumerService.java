@@ -5,6 +5,9 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.LogRequest;
 import com.example.demo.model.Log;
+import com.example.demo.service.LogService;
+
+import java.sql.Date;
 
 /**
  * KafkaConsumerService — Servizio per la ricezione di messaggi da Kafka.
@@ -21,6 +24,12 @@ import com.example.demo.model.Log;
 @Service
 public class KafkaConsumerService {
 
+    private final LogService logService;
+
+    public KafkaConsumerService(LogService logService) {
+        this.logService = logService;
+    }
+    
     /**
      * Ascolta i messaggi dal topic principale.
      * Se lancia un'eccezione, Spring Kafka attiva il meccanismo di retry.
