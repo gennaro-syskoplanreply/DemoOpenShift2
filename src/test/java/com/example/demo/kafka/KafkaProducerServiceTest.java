@@ -25,7 +25,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 @TestPropertySource(properties = {
     "spring.autoconfigure.exclude=",
     "KAFKA_TOPIC=test-topic",
-    "KAFKA_GROUP_ID=test-group"
+    "KAFKA_GROUP_ID=test-group",
+    "KAFKA_GROUP_ID_DEMOAPP2=test-group-demoapp2"
 })
 @DirtiesContext
 class KafkaProducerServiceTest {

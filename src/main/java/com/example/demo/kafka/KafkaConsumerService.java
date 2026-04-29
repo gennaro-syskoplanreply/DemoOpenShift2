@@ -38,7 +38,7 @@ public class KafkaConsumerService {
      */
     @KafkaListener(
         topics = "${KAFKA_TOPIC}",
-        groupId = "${KAFKA_GROUP_ID}"
+        groupId = "${KAFKA_GROUP_ID_DEMOAPP2}"
     )
     public void listen(String message) {
         System.out.println("Messaggio ricevuto: " + message);
@@ -65,7 +65,7 @@ public class KafkaConsumerService {
      */
     @KafkaListener(
         topics = "${KAFKA_TOPIC}.DLT",
-        groupId = "${KAFKA_GROUP_ID}-dlt"
+        groupId = "${KAFKA_GROUP_ID_DEMOAPP2}-dlt"
     )
     public void listenDlt(String message) {
         System.err.println("⚠️ Messaggio finito in DLQ: " + message);
