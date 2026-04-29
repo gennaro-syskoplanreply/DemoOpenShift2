@@ -3,8 +3,8 @@ package com.example.demo.kafka;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
-import main.java.com.example.demo.dto.LogRequest;
-import main.java.com.example.demo.model.Log;
+import com.example.demo.dto.LogRequest;
+import com.example.demo.model.Log;
 
 /**
  * KafkaConsumerService — Servizio per la ricezione di messaggi da Kafka.
