@@ -68,6 +68,7 @@ public class KafkaConsumerService {
         groupId = "${KAFKA_GROUP_ID_DEMOAPP2}-dlt"
     )
     public void listenDlt(String message) {
+        //ToDo: Gestione del messaggio finito in DLQ (es. log, salvataggio su DB, alerting)
         System.err.println("⚠️ Messaggio finito in DLQ: " + message);
 
         LogRequest request = new LogRequest();
